@@ -26,12 +26,20 @@ class App
         return 'Page no found';
     }
 
-    public static function view($path)
+    public static function view($path, $data = null)
     {
+        if ($data) {
+            extract($data);
+        }
+
+        ob_start();
+
         require ROOT . 'resources/views/layout/top.php';
 
         require ROOT . 'resources/views/' . $path . '.php';
 
         require ROOT . 'resources/views/layout/bottom.php';
+
+        return ob_get_clean();
     }
 }

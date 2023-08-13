@@ -8,6 +8,8 @@ class DonutsController
 {
     public function index()
     {
-        return App::view('donuts/index');
+        return App::view('donuts/index', [
+            'pageTitle' => 'Donuts index page',
+        ]);
     }
 }
