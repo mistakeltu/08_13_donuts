@@ -25,4 +25,13 @@ class App
 
         return 'Page no found';
     }
+
+    public static function view($path)
+    {
+        require ROOT . 'resources/views/layout/top.php';
+
+        require ROOT . 'resources/views/' . $path . '.php';
+
+        require ROOT . 'resources/views/layout/bottom.php';
+    }
 }

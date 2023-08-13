@@ -2,10 +2,12 @@
 
 namespace Donuts\Controllers;
 
+use Donuts\App;
+
 class DonutsController
 {
     public function index()
     {
-        return '<h1>sup from donuts</h1>';
+        return App::view('donuts/index');
     }
 }
