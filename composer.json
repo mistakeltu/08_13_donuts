@@ -1,0 +1,17 @@
+{
+  "name": "karolis/08_13_donuts",
+  "description": "Donuts",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Donuts\\": "app/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Karolis",
+      "email": "karolisdarbinis2@gmail.com"
+    }
+  ],
+  "require": {}
+}
