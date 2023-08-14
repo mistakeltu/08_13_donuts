@@ -13,6 +13,22 @@
                         <input type="text" class="form-control" name='title'>
                     </div>
                     <div class="mb-3">
+                        <label class="form-label">Donut coating</label>
+                        <select class="form-select" name='coating'>
+                            <?php foreach ($coating as $coating) : ?>
+                                <option value="<?= $coating['id'] ?>"><?= $coating['title'] ?></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="extra" name="extra">
+                            <label class="form-check-label" for="extra">
+                                Double coating
+                            </label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
                         <label class="form-label">About donut</label>
                         <textarea class="form-control" rows="3" name='description'></textarea>
                     </div>
