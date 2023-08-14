@@ -22,6 +22,9 @@ class App
         if ($method == 'GET' && count($uri) == 1 && $uri[0] == 'donuts') {
             return (new DC)->index();
         }
+        if ($method == 'GET' && count($uri) == 2 && $uri[0] == 'donuts' && $uri[1] == 'create') {
+            return (new DC)->create();
+        }
 
         return 'Page no found';
     }
