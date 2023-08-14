@@ -24,8 +24,50 @@ class FileDB implements DataBase
         $this->data = json_decode(file_get_contents($this->file), 1);
     }
 
+    public function __destruct()
+    {
+        file_put_contents($this->file, json_encode($this->data));
+    }
+
     public function create(array $data): void
     {
+        $id = rand(10000000, 999999999);
+        $data['id'] = $id;
         $this->data[] = $data;
+    }
+
+    public function update(int $id, array $data): void
+    {
+        foreach ($this->data as $key => $dataLine) {
+            if ($dataLine['id'] == $id) {
+                $this->data[$key] = $data;
+                $this->data[$key] = $id;
+                return;
+            }
+        }
+    }
+
+    public function delete(int $id): void
+    {
+        foreach ($this->data as $key => $dataLine) {
+            if ($dataLine['id'] == $id) {
+                unset($this->data[$key]);
+                return;
+            }
+        }
+    }
+
+    public function show(int $id): array
+    {
+        foreach ($this->data as $dataLine) {
+            if ($dataLine['id'] == $id) {
+                return $dataLine;
+            }
+        }
+    }
+
+    public function showAll(): array
+    {
+        return $this->data;
     }
 }
