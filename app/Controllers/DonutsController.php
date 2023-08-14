@@ -9,10 +9,17 @@ class DonutsController
 {
     public function index()
     {
-        $c = new FileDB();
+        $c = new FileDB('donuts');
 
         return App::view('donuts/index', [
             'pageTitle' => 'Donuts index page',
+        ]);
+    }
+
+    public function create()
+    {
+        return App::view('donuts/create', [
+            'pageTitle' => 'Create new donut',
         ]);
     }
 }
