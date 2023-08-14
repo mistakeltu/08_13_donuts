@@ -28,6 +28,7 @@ class DonutsController
     {
         return App::view('donuts/create', [
             'pageTitle' => 'Create new donut',
+            'coating' => $this->coating,
         ]);
     }
 }
