@@ -20,7 +20,7 @@
                     <a class="navbar-brand">Donuts</a>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="<?= URL ?>">Donuts HOME</a>
+                            <a class="nav-link" href="<?= URL . 'donuts' ?>">Donuts HOME</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?= URL . 'donuts' ?>">All Donuts</a>

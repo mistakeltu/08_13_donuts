@@ -17,10 +17,11 @@ class DonutsController
 
     public function index()
     {
-        $c = new FileDB('donuts');
+        $donuts = (new FileDB('donuts'))->showAll();
 
         return App::view('donuts/index', [
             'pageTitle' => 'Donuts index page',
+            'donuts' => $donuts
         ]);
     }
 
@@ -30,5 +31,20 @@ class DonutsController
             'pageTitle' => 'Create new donut',
             'coating' => $this->coating,
         ]);
+    }
+
+    public function store()
+    {
+        $data = [
+            'title' => $_POST['title'],
+            'coating' => $_POST['coating'],
+            'extra' => $_POST['extra'] ?? 'off',
+            'description' => $_POST['description'],
+            'hole' => $_POST['hole']
+        ];
+
+        (new FileDB('donuts'))->create($data);
+
+        return App::redirect('donuts');
     }
 }

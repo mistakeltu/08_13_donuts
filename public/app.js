@@ -7,12 +7,14 @@
   \*****************************/
 /***/ (() => {
 
-var holeDOM = document.querySelector("#--hole");
-var textDOM = holeDOM.querySelector("b");
-var inputDOM = holeDOM.querySelector("input");
-inputDOM.addEventListener("input", function (_) {
-  textDOM.innerText = inputDOM.value;
-});
+if (document.querySelector("#--hole")) {
+  var holeDOM = document.querySelector("#--hole");
+  var textDOM = holeDOM.querySelector("b");
+  var inputDOM = holeDOM.querySelector("input");
+  inputDOM.addEventListener("input", function (_) {
+    textDOM.innerText = inputDOM.value;
+  });
+}
 
 /***/ }),
 
