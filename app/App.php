@@ -28,6 +28,15 @@ class App
         if ($method == 'POST' && count($uri) == 2 && $uri[0] == 'donuts' && $uri[1] == 'store') {
             return (new DC)->store();
         }
+        if ($method == 'GET' && count($uri) == 3 && $uri[0] == 'donuts' && $uri[1] == 'delete') {
+            return (new DC)->delete($uri[2]);
+        }
+        if ($method == 'POST' && count($uri) == 3 && $uri[0] == 'donuts' && $uri[1] == 'destroy') {
+            return (new DC)->destroy($uri[2]);
+        }
+        if ($method == 'POST' && count($uri) == 3 && $uri[0] == 'donuts' && $uri[1] == 'edit') {
+            return (new DC)->edit($uri[2]);
+        }
 
         return 'Page no found';
     }

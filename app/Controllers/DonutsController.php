@@ -51,4 +51,21 @@ class DonutsController
 
         return App::redirect('donuts');
     }
+
+    public function delete($id)
+    {
+        $donut = (new FileDB('donuts'))->show($id);
+
+        return App::view('donuts/delete', [
+            'pageTitle' => 'Confirm delete',
+            'donut' => $donut
+        ]);
+    }
+
+    public function destroy($id)
+    {
+        (new FileDB('donuts'))->delete($id);
+
+        return App::redirect('donuts');
+    }
 }
