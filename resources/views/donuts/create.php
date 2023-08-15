@@ -32,9 +32,9 @@
                         <label class="form-label">About donut</label>
                         <textarea class="form-control" rows="3" name='description'></textarea>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">Donut hole in (2-15cm)</label>
-                        <input type="range" class="form-range" min='2' max='15' name='hole'>
+                    <div class="mb-3" id="--hole">
+                        <label class="form-label">Donut hole in (2-15cm): <b>2</b> cm</label>
+                        <input type="range" class="form-range" min='2' max='15' name='hole' value="2">
                     </div>
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
