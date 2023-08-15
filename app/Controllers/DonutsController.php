@@ -9,9 +9,12 @@ class DonutsController
 {
     private $coating = [
         ['id' => 1, 'title' => 'Chocolate', 'color' => 'brown'],
-        ['id' => 2, 'title' => 'Caramel', 'color' => 'darksalmon'],
-        ['id' => 3, 'title' => 'Blueberry', 'color' => 'blue'],
-        ['id' => 4, 'title' => 'Strawberry', 'color' => 'red'],
+        ['id' => 2, 'title' => 'Powdered sugar', 'color' => 'skyblue'],
+        ['id' => 3, 'title' => 'Caramel', 'color' => 'darksalmon'],
+        ['id' => 4, 'title' => 'Strawberry', 'color' => 'crimson'],
+        ['id' => 5, 'title' => 'Blueberry', 'color' => 'indigo'],
+        ['id' => 6, 'title' => 'Orange', 'color' => 'darkorange'],
+        ['id' => 7, 'title' => 'Lemon', 'color' => 'limegreen'],
     ];
 
 
@@ -21,7 +24,8 @@ class DonutsController
 
         return App::view('donuts/index', [
             'pageTitle' => 'Donuts index page',
-            'donuts' => $donuts
+            'donuts' => $donuts,
+            'coating' => $this->coating,
         ]);
     }
 
