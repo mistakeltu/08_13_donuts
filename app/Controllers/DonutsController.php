@@ -7,7 +7,7 @@ use Donuts\DB\FileDB;
 
 class DonutsController
 {
-    private $coating = [
+    private $coatings = [
         ['id' => 1, 'title' => 'Chocolate', 'color' => 'brown'],
         ['id' => 2, 'title' => 'Powdered sugar', 'color' => 'skyblue'],
         ['id' => 3, 'title' => 'Caramel', 'color' => 'darksalmon'],
@@ -25,7 +25,7 @@ class DonutsController
         return App::view('donuts/index', [
             'pageTitle' => 'Donuts index page',
             'donuts' => $donuts,
-            'coating' => $this->coating,
+            'coatings' => $this->coatings,
         ]);
     }
 
@@ -33,7 +33,7 @@ class DonutsController
     {
         return App::view('donuts/create', [
             'pageTitle' => 'Create new donut',
-            'coating' => $this->coating,
+            'coatings' => $this->coatings,
         ]);
     }
 
@@ -67,5 +67,42 @@ class DonutsController
         (new FileDB('donuts'))->delete($id);
 
         return App::redirect('donuts');
+    }
+
+    public function edit($id)
+    {
+        $donut = (new FileDB('donuts'))->show($id);
+
+        return App::view('donuts/edit', [
+            'pageTitle' => 'Edit donut',
+            'donut' => $donut,
+            'coatings' => $this->coatings
+        ]);
+    }
+
+    public function update($id)
+    {
+        $data = [
+            'title' => $_POST['title'],
+            'coating' => $_POST['coating'],
+            'extra' => $_POST['extra'] ?? 'off',
+            'description' => $_POST['description'],
+            'hole' => $_POST['hole']
+        ];
+
+        (new FileDB('donuts'))->update($id, $data);
+
+        return App::redirect('donuts');
+    }
+
+    public function show($id)
+    {
+        $donut = (new FileDB('donuts'))->show($id);
+
+        return App::view('donuts/show', [
+            'pageTitle' => 'Donut details',
+            'donut' => $donut,
+            'coatings' => $this->coatings,
+        ]);
     }
 }

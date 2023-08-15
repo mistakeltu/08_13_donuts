@@ -15,9 +15,9 @@
                         <?= $donut['title'] ?>
                     </div>
                     <div class="donut">
-                        <?php foreach ($coating as $coat) : ?>
-                            <?php if ($coat['id'] == $donut['coating']) : ?>
-                                <div class="body" style="background:<?= $coat['color'] ?>;">
+                        <?php foreach ($coatings as $coating) : ?>
+                            <?php if ($coating['id'] == $donut['coating']) : ?>
+                                <div class="body" style="background:<?= $coating['color'] ?>;">
                                     <div class="hole" style="width:<?= 30 + $donut['hole'] * 5 ?>px;height:<?= 30 + $donut['hole'] * 5 ?>px;">
                                     </div>
                                 </div>

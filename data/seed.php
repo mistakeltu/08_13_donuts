@@ -6,7 +6,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 $faker = Faker::create();
 
-$coating = [
+$coatings = [
     ['id' => 1, 'title' => 'Chocolate', 'color' => 'brown'],
     ['id' => 2, 'title' => 'Powdered sugar', 'color' => 'skyblue'],
     ['id' => 3, 'title' => 'Caramel', 'color' => 'darksalmon'],
@@ -22,7 +22,7 @@ $title = '';
 
 
 
-for ($i = 0; $i < 6; $i++) {
+for ($i = 0; $i < 7; $i++) {
     $donuts[] = [
         'id' => rand(100000000, 999999999),
         'title' => (rand(0, 1) ? ($faker->streetSuffix . ' ') : '')

@@ -34,8 +34,14 @@ class App
         if ($method == 'POST' && count($uri) == 3 && $uri[0] == 'donuts' && $uri[1] == 'destroy') {
             return (new DC)->destroy($uri[2]);
         }
-        if ($method == 'POST' && count($uri) == 3 && $uri[0] == 'donuts' && $uri[1] == 'edit') {
+        if ($method == 'GET' && count($uri) == 3 && $uri[0] == 'donuts' && $uri[1] == 'edit') {
             return (new DC)->edit($uri[2]);
+        }
+        if ($method == 'POST' && count($uri) == 3 && $uri[0] == 'donuts' && $uri[1] == 'update') {
+            return (new DC)->update($uri[2]);
+        }
+        if ($method == 'GET' && count($uri) == 3 && $uri[0] == 'donuts' && $uri[1] == 'show') {
+            return (new DC)->show($uri[2]);
         }
 
         return 'Page no found';

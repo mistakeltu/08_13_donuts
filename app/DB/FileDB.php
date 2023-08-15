@@ -41,7 +41,7 @@ class FileDB implements DataBase
         foreach ($this->data as $key => $dataLine) {
             if ($dataLine['id'] == $id) {
                 $this->data[$key] = $data;
-                $this->data[$key] = $id;
+                $this->data[$key]['id'] = $id;
                 return;
             }
         }
